@@ -7,12 +7,7 @@ import java.time.Period;
 import java.util.Date;
 
 
-/*
- * Title : TimeUtil.java
- * Created by : Ajaysinh Rathod
- * Purpose : To get Current login time 
- * Mail : ajaysinhrathod1290@gmail.com
- */
+
 
 
 public class TimeUtil {

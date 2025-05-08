@@ -142,7 +142,7 @@ public class ChangePasswordDialog extends JDialog {
 		getContentPane().setLayout(null);
 		
 		headinglabel = new JLabel("Change Password");
-		headinglabel.setBackground(new Color(32, 178, 170));
+		headinglabel.setBackground(new Color(1, 50, 90));
 		headinglabel.setOpaque(true);
 		headinglabel.setFocusable(true);
 		headinglabel.setForeground(Color.WHITE);
@@ -191,7 +191,7 @@ public class ChangePasswordDialog extends JDialog {
 		changepasswordbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
 		changepasswordbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		changepasswordbutton.setForeground(new Color(255, 255, 255));
-		changepasswordbutton.setBackground(new Color(32, 178, 170));
+		changepasswordbutton.setBackground(new Color(1, 50, 90));
 		changepasswordbutton.setBounds(377, 281, 137, 33);
 		getContentPane().add(changepasswordbutton);
 		
@@ -203,7 +203,7 @@ public class ChangePasswordDialog extends JDialog {
 		JButton oldshowbutton = new JButton("show");
 		oldshowbutton.setForeground(new Color(255, 255, 255));
 		oldshowbutton.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		oldshowbutton.setBackground(new Color(32, 178, 170));
+		oldshowbutton.setBackground(new Color(1, 50, 90));
 		oldshowbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
 		oldshowbutton.setBounds(445, 74, 70, 40);
 		oldshowbutton.setFocusable(false);
@@ -227,7 +227,7 @@ public class ChangePasswordDialog extends JDialog {
 		newshowbutton.setForeground(Color.WHITE);
 		newshowbutton.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		newshowbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
-		newshowbutton.setBackground(new Color(32, 178, 170));
+		newshowbutton.setBackground(new Color(1, 50, 90));
 		newshowbutton.setBounds(445, 135, 70, 40);
 		newshowbutton.setFocusable(false);
 		newshowbutton.addActionListener(e->
@@ -250,7 +250,7 @@ public class ChangePasswordDialog extends JDialog {
 		new2showbutton.setForeground(Color.WHITE);
 		new2showbutton.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		new2showbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
-		new2showbutton.setBackground(new Color(32, 178, 170));
+		new2showbutton.setBackground(new Color(1, 50, 90));
 		new2showbutton.setBounds(445, 197, 70, 40);
 		new2showbutton.setFocusable(false);
 		new2showbutton.addActionListener(e->

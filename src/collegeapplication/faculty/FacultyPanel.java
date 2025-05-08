@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -30,8 +31,9 @@ import javax.swing.text.DefaultFormatter;
 
 import collegeapplication.admin.AdminMain;
 import collegeapplication.common.PhotoViewPanel;
+import collegeapplication.common.ResultSetToTableModel;
 import collegeapplication.student.StudentMain;
-import net.proteanit.sql.DbUtils;
+
 
 /*
  * Title : FacultyPanel.java
@@ -161,7 +163,7 @@ public class FacultyPanel extends JPanel implements ActionListener {
 		this.setSize(1116, 705);
 		setLayout(null);
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(32, 178, 170));
+		panel.setBackground(new Color(30, 183, 239));
 		panel.setBounds(10, 0, 1096, 183);
 		add(panel);
 		panel.setLayout(null);
@@ -169,7 +171,7 @@ public class FacultyPanel extends JPanel implements ActionListener {
 		headinglabel.setIcon(null);
 		headinglabel.setBounds(10, 65, 272, 44);
 		panel.add(headinglabel);
-		headinglabel.setBackground(new Color(32, 178, 170));
+		headinglabel.setBackground(new Color(30, 183, 239));
 		headinglabel.setHorizontalAlignment(SwingConstants.LEFT);
 		headinglabel.setForeground(Color.WHITE);
 		headinglabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
@@ -180,14 +182,14 @@ public class FacultyPanel extends JPanel implements ActionListener {
 		  addnewfaculity.setBounds(932, 139, 153, 33);
 		  panel.add(addnewfaculity);
 		  addnewfaculity.setFocusable(false);
-		  addnewfaculity.setForeground(new Color(0, 128, 128));
+		  addnewfaculity.setForeground(new Color(30, 183, 239));
 		  addnewfaculity.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		  addnewfaculity.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		  
 		  addnewfaculity.setBackground(new Color(255, 255, 255));
 		  
 		  viewbutton = new JButton("Photo View");
-		  viewbutton.setForeground(new Color(0, 128, 128));
+		  viewbutton.setForeground(new Color(30, 183, 239));
 		  viewbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		  viewbutton.setFocusable(false);
 		  viewbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -253,7 +255,7 @@ public class FacultyPanel extends JPanel implements ActionListener {
 			table = new JTable();
 			table.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			table.setBorder(new LineBorder(Color.LIGHT_GRAY));
-			table.getTableHeader().setBackground(new Color(32,178,170));
+			table.getTableHeader().setBackground(new Color(30, 183, 239));
 			table.getTableHeader().setForeground(Color.white);
 			table.getTableHeader().setFont(new Font("Arial",Font.BOLD,20));
 			table.setFont(new Font("Segoe UI",Font.PLAIN,20));
@@ -333,8 +335,12 @@ public class FacultyPanel extends JPanel implements ActionListener {
 		ResultSet rs=new FacultyData().getFacultyInfo(condition);
 		if(rs!=null)
 		{
-			table.setModel(DbUtils.resultSetToTableModel(rs));
-		}
+            try {
+                table.setModel(ResultSetToTableModel.buildTableModel(rs));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
 		table.getColumnModel().getColumn(0).setMaxWidth(200);
 		table.getColumnModel().getColumn(1).setMaxWidth(300);
 		table.getColumnModel().getColumn(2).setMaxWidth(500);

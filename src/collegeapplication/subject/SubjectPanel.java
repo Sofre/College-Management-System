@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -25,15 +26,16 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 
 import collegeapplication.admin.AdminMain;
-import collegeapplication.cource.CourceData;
+import collegeapplication.common.ResultSetToTableModel;
+import collegeapplication.course.CourceData;
 import collegeapplication.faculty.FacultyMain;
 import collegeapplication.student.StudentMain;
-import net.proteanit.sql.DbUtils;
+
 
 /*
  * Title : SubjectPanel.java
  * Created by : Ajaysinh Rathod
- * Purpose : Displaying all the subject in given cource and sem
+ * Purpose : Displaying all the subject in given course and sem
  * Mail : ajaysinhrathod1290@gmail.com
  */
 
@@ -104,7 +106,7 @@ public class SubjectPanel extends JPanel implements ActionListener
 		backbutton.setFocusable(false);
 		backbutton.setForeground(Color.WHITE);
 		backbutton.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		backbutton.setBackground(new Color(32, 178, 170));
+		backbutton.setBackground(new Color(37, 170, 119));
 		backbutton.setBounds(10,141, 88, 36);
 		headerlabel.add(backbutton);
 		
@@ -125,7 +127,7 @@ public class SubjectPanel extends JPanel implements ActionListener
 		backbutton.setFocusable(false);
 		backbutton.setForeground(Color.WHITE);
 		backbutton.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		backbutton.setBackground(new Color(32, 178, 170));
+		backbutton.setBackground(new Color(37, 170, 119));
 		backbutton.setBounds(10, 141, 88, 36);
 		headerlabel.add(backbutton);
 		
@@ -145,7 +147,7 @@ public class SubjectPanel extends JPanel implements ActionListener
 		this.setSize(1116, 705);
 		setLayout(null);
 		headerlabel = new JLabel("Subject Management");
-		headerlabel.setBackground(new Color(32, 178, 170));
+		headerlabel.setBackground(new Color(37, 170, 119));
 		headerlabel.setHorizontalAlignment(SwingConstants.CENTER);
 		headerlabel.setForeground(new Color(255, 255, 255));
 		headerlabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
@@ -191,7 +193,7 @@ public class SubjectPanel extends JPanel implements ActionListener
 		addsubject.setBorder(new EmptyBorder(0, 0, 0, 0));
 		addsubject.addActionListener(this);
 		addsubject.setForeground(new Color(255, 255, 255));
-		addsubject.setBackground(new Color(32, 178, 170));
+		addsubject.setBackground(new Color(37, 170, 119));
 		addsubject.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		addsubject.setBounds(937, 242, 169, 37);
 		addsubject.setVisible(false);
@@ -213,7 +215,7 @@ public class SubjectPanel extends JPanel implements ActionListener
 		table.setBackground(Color.white);
 		table.setRowHeight(40);
 		
-		table.getTableHeader().setBackground(new Color(32, 178, 170));
+		table.getTableHeader().setBackground(new Color(37, 170, 119));
 		table.getTableHeader().setForeground(Color.white);
 		table.getTableHeader().setFont(new Font("Arial",Font.BOLD,20));
 		table.setFont(new Font("Segoe UI",Font.PLAIN,20));
@@ -298,8 +300,12 @@ public class SubjectPanel extends JPanel implements ActionListener
 	public void createtablemodel(String courcecode,int sem)
 	{
 		 ResultSet st=new SubjectData().getSubjectinfo(courcecode,sem);
-		 table.setModel(DbUtils.resultSetToTableModel(st));
-		 DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        try {
+            table.setModel(ResultSetToTableModel.buildTableModel(st));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		 centerRenderer.setHorizontalAlignment( JLabel.CENTER );
 		 table.getColumnModel().getColumn(0).setCellRenderer( centerRenderer );
 		 table.getColumnModel().getColumn(1).setCellRenderer( centerRenderer );

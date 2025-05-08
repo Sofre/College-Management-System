@@ -1,5 +1,7 @@
 package collegeapplication.subject;
 
+import collegeapplication.common.ResultSetToTableModel;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -12,6 +14,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -26,12 +29,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 
-import net.proteanit.sql.DbUtils;
+
 
 /*
  * Title : AddSubjectDialog.java
  * Created by : Ajaysinh Rathod
- * Purpose : For adding new subject to cource
+ * Purpose : For adding new subject to course
  * Mail : ajaysinhrathod1290@gmail.com
  */
 
@@ -304,8 +307,12 @@ public class AddSubjectDialog extends JDialog implements ActionListener
 				if(result==1)
 				{
 					ResultSet st=new SubjectData().getSubjectinfo(Courcecode,semoryear);
-					table.setModel(DbUtils.resultSetToTableModel(st));
-					DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+                    try {
+                        table.setModel(ResultSetToTableModel.buildTableModel(st));
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 					 centerRenderer.setHorizontalAlignment( JLabel.CENTER );
 					 table.getColumnModel().getColumn(0).setCellRenderer( centerRenderer );
 					 table.getColumnModel().getColumn(1).setCellRenderer( centerRenderer );

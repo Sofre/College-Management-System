@@ -33,8 +33,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.plaf.ColorUIResource;
 
 import collegeapplication.admin.AdminProfilePanel;
-import collegeapplication.chat.ChatData;
-import collegeapplication.chat.ChatMainPanel;
+
 import collegeapplication.common.DataBaseConnection;
 import collegeapplication.common.HomePanel;
 import collegeapplication.common.NotificationData;
@@ -98,7 +97,7 @@ public class FacultyMain extends JFrame  implements ActionListener
 	public FacultyPanel facultypanel;
 	public AdminProfilePanel adminprofilepanel;
 	public SearchPanel searchpanel;
-	private ChatMainPanel chatmainpanel;
+
 	public NotificationPanel notificationpanel;
 	public int panely=0,panelx=250;
 	private JButton btn;
@@ -163,23 +162,14 @@ public class FacultyMain extends JFrame  implements ActionListener
 				totalnewnotification.setText(notification>999?"999+":notification+"");
 				totalnewnotification.setIcon(new ImageIcon(messagecount.getScaledInstance(24+totalnewnotification.getText().length(), 24, Image.SCALE_SMOOTH)));
 				}
-				int chat=new ChatData().getUndreadMessageCountFaculty(f);
-				if(chat>0)
-				{
-					totalnewchatmessage.setText(chat>999?"999+":chat+"");
-					totalnewchatmessage.setVisible(true);
-					totalnewchatmessage.setIcon(new ImageIcon(messagecount.getScaledInstance(26+totalnewchatmessage.getText().length(), 26, Image.SCALE_SMOOTH)));
-				}
-				else if(chat==0)
-				{
-					totalnewchatmessage.setVisible(false);
-				}
+
+
 			}
 			
 		};
 		timer=new Timer(1000,setActive);
 		timer.start();
-		Color bgColor =new Color(32,178,170);
+		Color bgColor =new Color(30, 183, 239);
 		Color frColor=Color.white;
 		try
 		{
@@ -271,24 +261,7 @@ public class FacultyMain extends JFrame  implements ActionListener
 		attandancereportbutton = createButton("Attandance Report");
 		sidebarpanel.add(attandancereportbutton);
 		
-		chatbutton = createButton("Chat");
-		chatbutton.setLayout(new BorderLayout());
-		sidebarpanel.add(chatbutton);
-		int chat=new ChatData().getUndreadMessageCountFaculty(f);
-		totalnewchatmessage=new JLabel();
-		totalnewchatmessage.setSize(60,30);
-		totalnewchatmessage.setFont(new Font("Arial",Font.BOLD,12));
-		totalnewchatmessage.setForeground(Color.white);
-		totalnewchatmessage.setHorizontalTextPosition(JLabel.CENTER);
-		totalnewchatmessage.setVerticalTextPosition(JLabel.CENTER);
-		chatbutton.add(totalnewchatmessage,BorderLayout.LINE_END);
-		if(chat>0)
-		{
-			totalnewchatmessage.setText(chat>999?"999+":chat+"");
-			totalnewchatmessage.setVisible(true);
-			totalnewchatmessage.setIcon(new ImageIcon(messagecount.getScaledInstance(26+totalnewchatmessage.getText().length(), 26, Image.SCALE_SMOOTH)));
-		}
-		
+
 		searchbutton = createButton("Search");
 		sidebarpanel.add(searchbutton);
 		
@@ -464,19 +437,7 @@ public class FacultyMain extends JFrame  implements ActionListener
 		{
 			searchpanel.setVisible(false);
 		}
-		else if(chatmainpanel!=null && chatmainpanel.isVisible())
-		{
-			try {
-				if(chatmainpanel.chatpanel.subchatpanel!=null&&chatmainpanel.chatpanel.subchatpanel.socket!=null&&!chatmainpanel.chatpanel.subchatpanel.socket.isClosed())
-				{
-					chatmainpanel.chatpanel.subchatpanel.socket.close();
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			chatmainpanel.setVisible(false);
-		}
+
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) 
@@ -599,15 +560,7 @@ public class FacultyMain extends JFrame  implements ActionListener
 				c.setBackground(Color.white);
 			}
 		}
-		else if(source==chatbutton)
-		{
-			activeButton(chatbutton);
-			chatmainpanel=new ChatMainPanel(this);
-			chatmainpanel.setLocation(this.panelx, this.panely);
-			chatmainpanel.setVisible(true);
-			contentPane.add(chatmainpanel);
-			
-		}
+
 		else if(source==searchbutton)
 		{
 			activeButton(searchbutton);

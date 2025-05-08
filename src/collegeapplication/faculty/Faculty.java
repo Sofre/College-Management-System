@@ -2,7 +2,7 @@ package collegeapplication.faculty;
 
 import collegeapplication.common.Person;
 import collegeapplication.common.TimeUtil;
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.CourceData;
 
 /*
  * Title : Faculty.java

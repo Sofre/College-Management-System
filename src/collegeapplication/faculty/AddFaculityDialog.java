@@ -101,7 +101,7 @@ public class AddFaculityDialog extends JDialog implements ActionListener
 		headerlabel.setBounds(0, 0, 695, 42);
 		getContentPane().add(headerlabel);
 		
-		headerlabel.setBackground(new Color(32, 178, 170));
+		headerlabel.setBackground(new Color(30, 183, 239));
 		headerlabel.setOpaque(true);
 		headerlabel.setForeground(new Color(255, 255, 255));
 		headerlabel.setFont(new Font("Arial", Font.BOLD, 23));
@@ -377,7 +377,7 @@ public class AddFaculityDialog extends JDialog implements ActionListener
 		addfacultybutton = new JButton("Add Faculty");
 		addfacultybutton.setBorder(new EmptyBorder(0, 0, 0, 0));
 		addfacultybutton.setForeground(new Color(255, 255, 255));
-		addfacultybutton.setBackground(new Color(32, 178, 170));
+		addfacultybutton.setBackground(new Color(1, 50, 90));
 		addfacultybutton.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		addfacultybutton.setFocusable(false);
 		addfacultybutton.setCursor(new Cursor(Cursor.HAND_CURSOR));

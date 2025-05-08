@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
@@ -27,7 +28,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 
 import collegeapplication.admin.AdminMain;
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.CourceData;
 import collegeapplication.faculty.Faculty;
 import collegeapplication.faculty.FacultyData;
 import collegeapplication.faculty.FacultyMain;
@@ -36,7 +37,7 @@ import collegeapplication.student.Student;
 import collegeapplication.student.StudentData;
 import collegeapplication.student.StudentMain;
 import collegeapplication.student.ViewStudentPanel;
-import net.proteanit.sql.DbUtils;
+
 
 
 /*
@@ -267,13 +268,17 @@ public class SearchPanel extends JPanel implements ActionListener {
 		table.setBorder(new LineBorder(Color.LIGHT_GRAY));
 		
 		
-		table.getTableHeader().setBackground(new Color(32,178,170));
+		table.getTableHeader().setBackground(new Color(1, 50, 90));
 		table.getTableHeader().setForeground(Color.white);
 		table.setSelectionBackground(new Color(240, 255, 255));
 		table.getTableHeader().setFont(new Font("Arial",Font.BOLD,20));
 		table.setFont(new Font("Segoe UI",Font.PLAIN,20));
-		table.setModel(DbUtils.resultSetToTableModel(new StudentData().getStudentinfo("")));
-		table.getTableHeader().setPreferredSize(new Dimension(50,40));
+        try {
+            table.setModel(ResultSetToTableModel.buildTableModel(new StudentData().getStudentinfo("")));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        table.getTableHeader().setPreferredSize(new Dimension(50,40));
 		table.setFocusable(false);
 		table.setDragEnabled(false);
 		table.setRowHeight(40);
@@ -285,7 +290,7 @@ public class SearchPanel extends JPanel implements ActionListener {
 		
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(32, 178, 170));
+		panel.setBackground(new Color(1, 50, 90));
 		panel.setBounds(10, 0, 1096, 183);
 		add(panel);
 		panel.setLayout(null);
@@ -293,7 +298,7 @@ public class SearchPanel extends JPanel implements ActionListener {
 		lblStudentManagement.setIcon(null);
 		lblStudentManagement.setBounds(10, 38, 224, 44);
 		panel.add(lblStudentManagement);
-		lblStudentManagement.setBackground(new Color(32, 178, 170));
+		lblStudentManagement.setBackground(new Color(1, 50, 90));
 		lblStudentManagement.setHorizontalAlignment(SwingConstants.LEFT);
 		lblStudentManagement.setForeground(Color.WHITE);
 		lblStudentManagement.setFont(new Font("Segoe UI", Font.BOLD, 30));
@@ -331,7 +336,7 @@ public class SearchPanel extends JPanel implements ActionListener {
 		searchfield.setColumns(10);
 		
 		searchbutton = new JButton();
-		searchbutton.setForeground(new Color(0, 139, 139));
+		searchbutton.setForeground(new Color(1, 50, 90));
 		searchbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		searchbutton.setText("Search");
 		searchbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -433,8 +438,12 @@ public class SearchPanel extends JPanel implements ActionListener {
 				}
 			
 			}
-			table.setModel(DbUtils.resultSetToTableModel(new StudentData().searchStudent(query)));
-			this.arrangeStudentTable();
+            try {
+                table.setModel(ResultSetToTableModel.buildTableModel(new StudentData().searchStudent(query)));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            this.arrangeStudentTable();
 		}
 		else if(studentandfacultycombo.getSelectedIndex()==1)
 		{
@@ -463,8 +472,12 @@ public class SearchPanel extends JPanel implements ActionListener {
 				}
 			
 			}
-			table.setModel(DbUtils.resultSetToTableModel(new FacultyData().searchFaculty(query)));
-			this.arrangeFacultyTable();
+            try {
+                table.setModel(ResultSetToTableModel.buildTableModel(new FacultyData().searchFaculty(query)));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            this.arrangeFacultyTable();
 		}
 	}
 }

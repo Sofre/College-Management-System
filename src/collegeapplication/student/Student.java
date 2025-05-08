@@ -2,7 +2,7 @@ package collegeapplication.student;
 
 import collegeapplication.common.Person;
 import collegeapplication.common.TimeUtil;
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.CourceData;
 
 public class Student extends Person{
 	

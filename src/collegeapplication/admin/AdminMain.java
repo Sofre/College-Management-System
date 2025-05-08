@@ -30,14 +30,13 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.plaf.ColorUIResource;
 
-import collegeapplication.chat.ChatData;
-import collegeapplication.chat.ChatMainPanel;
+
 import collegeapplication.common.DataBaseConnection;
 import collegeapplication.common.HomePanel;
 import collegeapplication.common.SearchPanel;
 import collegeapplication.common.TimeUtil;
 import collegeapplication.common.UsersPanel;
-import collegeapplication.cource.CourcePanel;
+import collegeapplication.course.CourcePanel;
 import collegeapplication.faculty.FacultyPanel;
 import collegeapplication.faculty.ViewFacultyPanel;
 import collegeapplication.login.LoginPageFrame;
@@ -51,17 +50,11 @@ import collegeapplication.student.ViewStudentPanel;
 import collegeapplication.subject.AssignSubjectPanel;
 import collegeapplication.subject.SubjectPanel;
 
-/*
- * Title : AdminMain.java
- * Created by : Ajaysinh Rathod
- * Purpose : Main admin frame
- * Mail : ajaysinhrathod1290@gmail.com
- */
-@SuppressWarnings("serial")
+
 public class AdminMain extends JFrame  implements ActionListener
 {
 
-	
+
 	public JPanel contentPane;
 	private JLabel collagenamelabel;
 	private JLabel profilepiclabel;
@@ -80,14 +73,14 @@ public class AdminMain extends JFrame  implements ActionListener
 	private JButton exitbutton;
 	private JButton btn;
 	private JButton adminprofilebutton;
-	
+
 	private Color buttonbcolor=Color.DARK_GRAY;
 	private Color buttonfcolor=Color.LIGHT_GRAY;
 	private Font buttonfont=new Font("Tw Cen MT", Font.PLAIN, 20);
 	private CourcePanel courcepanel;
 	private SubjectPanel subjectpanel;
 	private HomePanel homepanel;
-	
+
 	public StudentPanel studentpanel;
 	public ViewStudentPanel viewstudentpanel;
 	public MarkSheetPanel marksheetpanel;
@@ -105,11 +98,11 @@ public class AdminMain extends JFrame  implements ActionListener
 	public FacultyPanel facultypanel;
 	public AdminProfilePanel adminprofilepanel;
 	public SearchPanel searchpanel;
-	public ChatMainPanel chatmainpanel;
+
 	public UsersPanel userspanel;
-	
+
 	public int panely=0,panelx=250;
-	
+
 	private Admin a;
 	private String lastlogin;
 	private JButton chatbutton;
@@ -127,11 +120,11 @@ public class AdminMain extends JFrame  implements ActionListener
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-				
+
 					if(DataBaseConnection.checkconnection())
 					{
-						AdminMain frame = new AdminMain();	
-					    frame.setVisible(true);
+						AdminMain frame = new AdminMain();
+						frame.setVisible(true);
 					}
 					else
 					{
@@ -150,47 +143,41 @@ public class AdminMain extends JFrame  implements ActionListener
 	 * Create the frame.
 	 */
 	public AdminMain() {
-	
-		
-		 a=new AdminData().getAdminData();
-		 ActionListener setActive=new ActionListener()
+
+
+		a=new AdminData().getAdminData();
+		ActionListener setActive=new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
 			{
-				public void actionPerformed(ActionEvent arg0) 
+				int active_status_set=new AdminData().setActiveStatus(a.getActiveStatus());
+
+				if(active_status_set<=0)
 				{
-					int result=new AdminData().setActiveStatus(a.getActiveStatus());
-					
-					if(result>0)
-					{
-						chat=new ChatData().getUndreadMessageCountAdmin();
-						if(chat>0)
-						{
-							totalnewchatmessage.setText(chat>999?"999+":chat+"");
-							totalnewchatmessage.setVisible(true);
-							totalnewchatmessage.setIcon(new ImageIcon(messagecount.getScaledInstance(26+totalnewchatmessage.getText().length(), 26, Image.SCALE_SMOOTH)));
-						}
-						else 
-						{
-							totalnewchatmessage.setVisible(false);
-						}
-					}
-					
+					System.out.println("Not functional.. status currently: "+ active_status_set);
 				}
-				
-			};
-			timer=new Timer(2000,setActive);
-			timer.start();
-			
-		Color bgColor =new Color(32,178,170);
+				else
+				{
+					System.out.println("Functional .. status is alive.. status currently: "+active_status_set);
+				}
+
+			}
+
+		};
+		timer=new Timer(2000,setActive);
+		timer.start();
+
+		Color bgColor =new Color(1, 50, 90);
 		Color frColor=Color.white;
 
 		UIManager.put("ComboBoxUI", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI");
-	    UIManager.put("ComboBox.selectionBackground", new ColorUIResource(bgColor));
-	    UIManager.put("ComboBox.background", new ColorUIResource(Color.white));
-	    UIManager.put("ComboBox.foreground", new ColorUIResource(Color.DARK_GRAY));
-	    UIManager.put("ComboBox.selectionForeground", new ColorUIResource(frColor));
-	    UIManager.put("ScrollBarUI", "com.sun.java.swing.plaf.windows.WindowsScrollBarUI");
-	  
-	    try
+		UIManager.put("ComboBox.selectionBackground", new ColorUIResource(bgColor));
+		UIManager.put("ComboBox.background", new ColorUIResource(Color.white));
+		UIManager.put("ComboBox.foreground", new ColorUIResource(Color.DARK_GRAY));
+		UIManager.put("ComboBox.selectionForeground", new ColorUIResource(frColor));
+		UIManager.put("ScrollBarUI", "com.sun.java.swing.plaf.windows.WindowsScrollBarUI");
+
+		try
 		{
 			messagecount=ImageIO.read(new File("./assets/messagecount.png"));
 		}
@@ -207,37 +194,37 @@ public class AdminMain extends JFrame  implements ActionListener
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		this.setBounds(-2,0,1370,733);
 
-		 profilepanel = new JPanel();
-		 profilepanel.setBounds(5, 7, 240, 63);
-		 contentPane.add(profilepanel);
-		 profilepanel.setBorder(new MatteBorder(0, 0, 2, 0, (Color) Color.LIGHT_GRAY));
-		 profilepanel.setBackground(Color.DARK_GRAY);
-		 profilepanel.setLayout(null);
-		 
-		 collagenamelabel = new JLabel();
-		 collagenamelabel.setForeground(Color.WHITE);
-		 collagenamelabel.setHorizontalAlignment(SwingConstants.LEFT);
-		 collagenamelabel.setFont(new Font("Tw Cen MT", Font.BOLD, 25));
-		 collagenamelabel.setBackground(Color.DARK_GRAY);
-		 collagenamelabel.setText("Adminstrator");
-		 collagenamelabel.setOpaque(true);
-		 collagenamelabel.setBounds(65, 5, 171, 36);
-		 profilepanel.add(collagenamelabel);
-		 
-		 profilepiclabel = new JLabel();
-		 profilepiclabel.setBounds(5, 0, 50, 50);
-		 profilepanel.add(profilepiclabel);
-		 profilepiclabel.setHorizontalAlignment(SwingConstants.CENTER);
-		 profilepiclabel.setBackground(Color.DARK_GRAY);
-		 profilepiclabel.setBorder(new LineBorder(Color.black, 0));
-		 profilepiclabel.setOpaque(true);
-		 
+		profilepanel = new JPanel();
+		profilepanel.setBounds(5, 7, 240, 63);
+		contentPane.add(profilepanel);
+		profilepanel.setBorder(new MatteBorder(0, 0, 2, 0, (Color) Color.LIGHT_GRAY));
+		profilepanel.setBackground(Color.DARK_GRAY);
+		profilepanel.setLayout(null);
+
+		collagenamelabel = new JLabel();
+		collagenamelabel.setForeground(Color.WHITE);
+		collagenamelabel.setHorizontalAlignment(SwingConstants.LEFT);
+		collagenamelabel.setFont(new Font("Tw Cen MT", Font.BOLD, 25));
+		collagenamelabel.setBackground(Color.DARK_GRAY);
+		collagenamelabel.setText("Adminstrator");
+		collagenamelabel.setOpaque(true);
+		collagenamelabel.setBounds(65, 5, 171, 36);
+		profilepanel.add(collagenamelabel);
+
+		profilepiclabel = new JLabel();
+		profilepiclabel.setBounds(5, 0, 50, 50);
+		profilepanel.add(profilepiclabel);
+		profilepiclabel.setHorizontalAlignment(SwingConstants.CENTER);
+		profilepiclabel.setBackground(Color.DARK_GRAY);
+		profilepiclabel.setBorder(new LineBorder(Color.black, 0));
+		profilepiclabel.setOpaque(true);
+
 		createHomepanel();
-		
-		
+
+
 		//creating side bar panel
 		JPanel sidebarpanel = new JPanel();
 		sidebarpanel.setBorder(new MatteBorder(0, 0, 0, 2, (Color) new Color(64, 64, 64)));
@@ -245,99 +232,84 @@ public class AdminMain extends JFrame  implements ActionListener
 		sidebarpanel.setBounds(5, 75, 240, 654);
 		contentPane.add(sidebarpanel);
 		sidebarpanel.setLayout(null);
-		
+
 		//Adding buttons to sidebar
 		homebutton =createButton("Home");
 		sidebarpanel.add(homebutton);
 		btn=homebutton;
-		
+
 		courcebutton = createButton("Cources");
 		sidebarpanel.add(courcebutton);
-		
+
 		studentsbutton =createButton("Students");
 		sidebarpanel.add(studentsbutton);
-		
+
 		subjectbutton = createButton("Subjects");
 		sidebarpanel.add(subjectbutton);
-		
+
 		faculitiesbutton = createButton("Faculities");
 		sidebarpanel.add(faculitiesbutton);
-		
+
 		assignsubjectbutton = createButton("Assign Subject");
 		sidebarpanel.add(assignsubjectbutton);
-		
+
 		entermarksbutton = createButton("Enter Marks");
 		sidebarpanel.add(entermarksbutton);
-		
+
 		marksheetreportbutton = createButton("Marksheet Report");
 		sidebarpanel.add(marksheetreportbutton);
-		
+
 		markattandancebutton = createButton("Mark Attandance");
 		sidebarpanel.add(markattandancebutton);
-		
+
 		attandancereportbutton =createButton("Attandance Report");
 		sidebarpanel.add(attandancereportbutton);
-		
-		chatbutton = createButton("Chat");
-		chatbutton.setLayout(new BorderLayout());
-		sidebarpanel.add(chatbutton);
-		chat=new ChatData().getUndreadMessageCountAdmin();
+
+
 		totalnewchatmessage=new JLabel();
 		totalnewchatmessage.setSize(60,30);
 		totalnewchatmessage.setFont(new Font("Arial",Font.BOLD,12));
 		totalnewchatmessage.setForeground(Color.white);
 		totalnewchatmessage.setHorizontalTextPosition(JLabel.CENTER);
 		totalnewchatmessage.setVerticalTextPosition(JLabel.CENTER);
-		chatbutton.add(totalnewchatmessage,BorderLayout.LINE_END);
-		if(chat>0)
-		{
-			totalnewchatmessage.setText(chat>999?"999+":chat+"");
-			totalnewchatmessage.setVisible(true);
-			totalnewchatmessage.setIcon(new ImageIcon(messagecount.getScaledInstance(26+totalnewchatmessage.getText().length(), 26, Image.SCALE_SMOOTH)));
-		}
-//		ActionListener refreshchat=e->
-//		{
-//		
-//		};
-//		Timer activechattimer=new Timer(2000,refreshchat);
-//		activechattimer.start();
-//		
+
+
 		searchbutton = createButton("Search");
 		sidebarpanel.add(searchbutton);
-		
+
 		usersbutton = createButton("Users");
 		sidebarpanel.add(usersbutton);
-		
+
 		adminprofilebutton = createButton("Admin Profile","Profile");
 		sidebarpanel.add(adminprofilebutton);
 
 		logoutbutton = createButton("Logout");
 		sidebarpanel.add(logoutbutton);
-		
+
 		exitbutton = createButton("Exit");
 		sidebarpanel.add(exitbutton);
 
 		activeButton(homebutton);
 		homepanel.setVisible(true);
-		
+
 		this.setCollageDetails();
 		lastlogin=a.getLastLogin();
 		homepanel.setLastLogin(lastlogin);
 		a.setLastLogin(TimeUtil.getCurrentTime());
 		a.setActiveStatus(true);
 		new AdminData().updateAdminDetails(a);
-		
-		
-	        this.addWindowListener(new WindowAdapter() {
-	            @Override
-	            public void windowClosing(final WindowEvent windowenent) {
-	            	openPanel(exitbutton);
-	            	
-	            }
-	        });
-	        
-	        
-		
+
+
+		this.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(final WindowEvent windowenent) {
+				openPanel(exitbutton);
+
+			}
+		});
+
+
+
 	}
 	public void createHomepanel()
 	{
@@ -346,7 +318,7 @@ public class AdminMain extends JFrame  implements ActionListener
 		homepanel.setFocusable(true);
 		contentPane.add(homepanel);
 	}
-	
+
 	public void activeButton(JButton button)
 	{
 		btn.setBackground(buttonbcolor);
@@ -360,7 +332,7 @@ public class AdminMain extends JFrame  implements ActionListener
 		btn.setIcon(new ImageIcon("./assets/"+btn.getName()+"ac.png"));
 		disablepanel();
 	}
-	
+
 	public JButton createButton(String text,String name)
 	{
 		JButton button=createButton(text);
@@ -410,7 +382,7 @@ public class AdminMain extends JFrame  implements ActionListener
 		}
 		else if(viewstudentpanel!=null && viewstudentpanel.isVisible())
 		{
-		
+
 			viewstudentpanel.setVisible(false);
 		}
 		else if(facultypanel!=null && facultypanel.isVisible())
@@ -436,7 +408,7 @@ public class AdminMain extends JFrame  implements ActionListener
 		else if(markattandancepanelscroll!=null && markattandancepanelscroll.isVisible())
 		{
 			markattandancepanelscroll.setVisible(false);
-		}		
+		}
 		else if(attandancereportpanelscroll!=null && attandancereportpanelscroll.isVisible())
 		{
 			attandancereportpanelscroll.setVisible(false);
@@ -453,33 +425,19 @@ public class AdminMain extends JFrame  implements ActionListener
 		{
 			searchpanel.setVisible(false);
 		}
-		else if(chatmainpanel!=null && chatmainpanel.isVisible())
-		{
-			
-			try {
-				
-				if(chatmainpanel.chatpanel.subchatpanel!=null&&chatmainpanel.chatpanel.subchatpanel.socket!=null&&!chatmainpanel.chatpanel.subchatpanel.socket.isClosed())
-				{
-					chatmainpanel.chatpanel.subchatpanel.socket.close();
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			chatmainpanel.setVisible(false);
-		}
+
 		else if(userspanel!=null && userspanel.isVisible())
 		{
 			userspanel.setVisible(false);
 		}
-		
+
 	}
 	@Override
-	public void actionPerformed(ActionEvent e) 
+	public void actionPerformed(ActionEvent e)
 	{
 		openPanel(e.getSource());
 	}
-	public void openPanel(Object source) 
+	public void openPanel(Object source)
 	{
 		if(source==homebutton)
 		{
@@ -517,7 +475,7 @@ public class AdminMain extends JFrame  implements ActionListener
 			studentpanel.setVisible(true);
 			studentpanel.setFocusable(true);
 			contentPane.add(studentpanel);
-			
+
 		}
 		else if(source==faculitiesbutton)
 		{
@@ -527,7 +485,7 @@ public class AdminMain extends JFrame  implements ActionListener
 			facultypanel.setVisible(true);
 			facultypanel.setFocusable(true);
 			contentPane.add(facultypanel);
-			
+
 		}
 		else if(source==assignsubjectbutton)
 		{
@@ -537,7 +495,7 @@ public class AdminMain extends JFrame  implements ActionListener
 			assignsubjectpanel.setVisible(true);
 			assignsubjectpanel.setFocusable(true);
 			contentPane.add(assignsubjectpanel);
-			
+
 		}
 		else if(source==entermarksbutton)
 		{
@@ -553,7 +511,7 @@ public class AdminMain extends JFrame  implements ActionListener
 			{
 				c.setBackground(Color.white);
 			}
-			
+
 		}
 		else if(source==markattandancebutton)
 		{
@@ -610,16 +568,7 @@ public class AdminMain extends JFrame  implements ActionListener
 			userspanel.setLocation(this.panelx, this.panely);
 			contentPane.add(userspanel);
 		}
-		else if(source==chatbutton)
-		{
-			
-			activeButton(chatbutton);
-			chatmainpanel=new ChatMainPanel(this);
-			chatmainpanel.setLocation(this.panelx, this.panely);
-			chatmainpanel.setVisible(true);
-			contentPane.add(chatmainpanel);
-			
-		}
+
 		else if(source==searchbutton)
 		{
 			activeButton(searchbutton);
@@ -627,7 +576,7 @@ public class AdminMain extends JFrame  implements ActionListener
 			searchpanel.setLocation(this.panelx, this.panely);
 			searchpanel.setVisible(true);
 			contentPane.add(searchpanel);
-			
+
 		}
 		else if(source==adminprofilebutton)
 		{
@@ -645,7 +594,7 @@ public class AdminMain extends JFrame  implements ActionListener
 			{
 				a.setActiveStatus(false);
 				timer.stop();
-        		new AdminData().setActiveStatus(false);
+				new AdminData().setActiveStatus(false);
 				this.disablepanel();
 				DataBaseConnection.closeConnection();
 				System.exit(0);
@@ -658,7 +607,7 @@ public class AdminMain extends JFrame  implements ActionListener
 			{
 				a.setActiveStatus(false);
 				timer.stop();
-        		new AdminData().setActiveStatus(false);
+				new AdminData().setActiveStatus(false);
 				LoginPageFrame loginpageframe=new LoginPageFrame();
 				loginpageframe.setVisible(true);
 				loginpageframe.setLocationRelativeTo(null);
@@ -666,14 +615,14 @@ public class AdminMain extends JFrame  implements ActionListener
 				this.dispose();
 			}
 		}
-		
+
 	}
-	
-	
-	
+
+
+
 	public void setCollageDetails()
 	{
-		 a=new AdminData().getAdminData();
-		 profilepiclabel.setIcon(new ImageIcon(a.getRoundedProfilePic(50, 50, 50)));
+		a=new AdminData().getAdminData();
+		profilepiclabel.setIcon(new ImageIcon(a.getRoundedProfilePic(50, 50, 50)));
 	}
 }

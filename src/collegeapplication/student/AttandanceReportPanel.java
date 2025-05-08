@@ -31,7 +31,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import collegeapplication.admin.AdminMain;
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.CourceData;
 import collegeapplication.faculty.FacultyMain;
 import collegeapplication.subject.SubjectData;
 
@@ -83,7 +83,7 @@ public class AttandanceReportPanel extends JPanel implements ActionListener {
 		this.setSize(1116, 544);
 		setLayout(null);
 		panel = new JPanel();
-		panel.setBackground(new Color(32, 178, 170));
+		panel.setBackground(new Color(1, 50, 90));
 		panel.setBounds(10, 0, 1077, 183);
 		add(panel);
 		panel.setLayout(null);
@@ -91,14 +91,14 @@ public class AttandanceReportPanel extends JPanel implements ActionListener {
 		headinglabel.setIcon(null);
 		headinglabel.setBounds(10, 65, 272, 44);
 		panel.add(headinglabel);
-		headinglabel.setBackground(new Color(32, 178, 170));
+		headinglabel.setBackground(new Color(1, 50, 90));
 		headinglabel.setHorizontalAlignment(SwingConstants.LEFT);
 		headinglabel.setForeground(Color.WHITE);
 		headinglabel.setFont(new Font("Segoe UI", Font.BOLD, 28));
 		headinglabel.setOpaque(true);
 		
 		subjectwicebutton = new JButton("Subject Wice");
-		subjectwicebutton.setForeground(new Color(0, 139, 139));
+		subjectwicebutton.setForeground(new Color(1, 50, 90));
 		subjectwicebutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		subjectwicebutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		subjectwicebutton.setBackground(new Color(255, 255, 255));
@@ -107,7 +107,7 @@ public class AttandanceReportPanel extends JPanel implements ActionListener {
 		panel.add(subjectwicebutton);
 		
 		studentwicebutton = new JButton("Student Wice");
-		studentwicebutton.setForeground(new Color(0, 139, 139));
+		studentwicebutton.setForeground(new Color(1, 50, 90));
 		studentwicebutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		studentwicebutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		studentwicebutton.setBackground(Color.WHITE);
@@ -116,7 +116,7 @@ public class AttandanceReportPanel extends JPanel implements ActionListener {
 		panel.add(studentwicebutton);
 		
 		classwicebutton = new JButton("Class Wice");
-		classwicebutton.setForeground(new Color(0, 139, 139));
+		classwicebutton.setForeground(new Color(1, 50, 90));
 		classwicebutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		classwicebutton.setBackground(Color.WHITE);
 		classwicebutton.setBounds(907, 139, 146, 33);
@@ -182,7 +182,7 @@ public class AttandanceReportPanel extends JPanel implements ActionListener {
 		table.setBorder(new LineBorder(Color.LIGHT_GRAY));
 		table.setForeground(new Color(0, 0, 0));
 		table.setRowHeight(40);
-		table.getTableHeader().setBackground(new Color(32,178,170));
+		table.getTableHeader().setBackground(new Color(1, 50, 90));
 		table.getTableHeader().setForeground(Color.white);
 		table.getTableHeader().setFont(new Font("Arial",Font.BOLD,20));
 		table.setFont(new Font("Segoe UI",Font.PLAIN,20));
@@ -212,7 +212,7 @@ public class AttandanceReportPanel extends JPanel implements ActionListener {
 			fetchdetailsbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			fetchdetailsbutton.addActionListener(this);
 			fetchdetailsbutton.setBorder(new LineBorder(new Color(255, 255, 255)));
-			fetchdetailsbutton.setBackground(new Color(32, 178, 170));
+			fetchdetailsbutton.setBackground(new Color(1, 50, 90));
 			fetchdetailsbutton.setBounds(926, 399, 151, 37);
 			add(fetchdetailsbutton);
 			
@@ -243,7 +243,7 @@ public class AttandanceReportPanel extends JPanel implements ActionListener {
 	public void enableButton(JButton button)
 	{
 		button.setBorder(new LineBorder(new Color(255, 255, 255)));
-		button.setForeground(new Color(0, 139, 139));
+		button.setForeground(new Color(1, 50, 90));
 		button.setBackground(new Color(255, 255, 255));
 		button.setFocusPainted(false);
 		button.setName("Active");		
@@ -253,7 +253,7 @@ public class AttandanceReportPanel extends JPanel implements ActionListener {
 
 		button.setBorder(new LineBorder(new Color(255, 255, 255)));
 		button.setForeground(new Color(255, 255, 255));
-		button.setBackground(new Color(32, 178, 170));
+		button.setBackground(new Color(1, 50, 90));
 		button.setFocusPainted(false);
 		button.setName("Deactive");
 	}
@@ -572,7 +572,7 @@ public class AttandanceReportPanel extends JPanel implements ActionListener {
 		backbutton.setFocusable(false);
 		backbutton.setForeground(Color.WHITE);
 		backbutton.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		backbutton.setBackground(new Color(32, 178, 170));
+		backbutton.setBackground(new Color(1, 50, 90));
 		backbutton.setBounds(10, 141, 88, 36);
 		panel.add(backbutton);
 		

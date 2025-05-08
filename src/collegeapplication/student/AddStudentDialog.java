@@ -36,16 +36,10 @@ import javax.swing.border.MatteBorder;
 
 import collegeapplication.admin.AdminMain;
 import collegeapplication.common.HintTextField;
-import collegeapplication.cource.CourceData;
-import collegeapplication.cource.RollNumberData;
+import collegeapplication.course.CourceData;
+import collegeapplication.course.RollNumberData;
 import collegeapplication.subject.SubjectData;
 
-/*
- * Title : AddStudentDialog.java
- * Created by : Ajaysinh Rathod
- * Purpose : For adding new student or edit student details
- * Mail : ajaysinhrathod1290@gmail.com
- */
 @SuppressWarnings("serial")
 public class AddStudentDialog extends JDialog implements ActionListener {
 
@@ -116,7 +110,7 @@ public class AddStudentDialog extends JDialog implements ActionListener {
 		headerlabel.setBounds(0, 0, 834, 40);
 		getContentPane().add(headerlabel);
 
-		headerlabel.setBackground(new Color(32, 178, 170));
+		headerlabel.setBackground(new Color(1, 50, 90));
 		headerlabel.setOpaque(true);
 		headerlabel.setForeground(new Color(255, 255, 255));
 		headerlabel.setFont(new Font("Arial", Font.BOLD, 23));
@@ -332,7 +326,7 @@ public class AddStudentDialog extends JDialog implements ActionListener {
 		addstudentbutton = new JButton("Add Student");
 		addstudentbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
 		addstudentbutton.setForeground(new Color(255, 255, 255));
-		addstudentbutton.setBackground(new Color(32, 178, 170));
+		addstudentbutton.setBackground(new Color(232, 135, 10));
 		addstudentbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		addstudentbutton.addActionListener(this);
 		addstudentbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));

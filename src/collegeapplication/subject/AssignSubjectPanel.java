@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Objects;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,11 +21,12 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 
 import collegeapplication.admin.AdminMain;
+import collegeapplication.common.ResultSetToTableModel;
 import collegeapplication.faculty.Faculty;
 import collegeapplication.faculty.FacultyData;
 import collegeapplication.faculty.FacultyMain;
 import collegeapplication.student.StudentMain;
-import net.proteanit.sql.DbUtils;
+
 
 /*
  * Title : AssignSubjectPanel.java
@@ -85,7 +88,7 @@ public class AssignSubjectPanel extends JPanel {
 		this.setSize(1116, 705);
 		setLayout(null);
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(32, 178, 170));
+		panel.setBackground(new Color(37, 170, 119));
 		panel.setBounds(10, 0, 1096, 183);
 		add(panel);
 		panel.setLayout(null);
@@ -93,7 +96,7 @@ public class AssignSubjectPanel extends JPanel {
 		allfaculitieslabel.setIcon(null);
 		allfaculitieslabel.setBounds(10, 65, 272, 44);
 		panel.add(allfaculitieslabel);
-		allfaculitieslabel.setBackground(new Color(32, 178, 170));
+		allfaculitieslabel.setBackground(new Color(37, 170, 119));
 		allfaculitieslabel.setHorizontalAlignment(SwingConstants.LEFT);
 		allfaculitieslabel.setForeground(Color.WHITE);
 		allfaculitieslabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
@@ -116,7 +119,7 @@ public class AssignSubjectPanel extends JPanel {
 			  table = new JTable();
 			  createtablemodel();
 				table.setBorder(new LineBorder(Color.LIGHT_GRAY));
-				table.getTableHeader().setBackground(new Color(32,178,170));
+				table.getTableHeader().setBackground(new Color(37, 170, 119));
 				table.setCursor(new Cursor(Cursor.HAND_CURSOR));
 				table.getTableHeader().setForeground(Color.white);
 				table.getTableHeader().setFont(new Font("Arial",Font.BOLD,20));
@@ -145,8 +148,12 @@ public class AssignSubjectPanel extends JPanel {
 
 		if(rs!=null)
 		{
-			table.setModel(DbUtils.resultSetToTableModel(rs));
-		}
+            try {
+                table.setModel(ResultSetToTableModel.buildTableModel(rs));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
 		table.getColumnModel().getColumn(0).setMaxWidth(200);
 		table.getColumnModel().getColumn(1).setMaxWidth(300);
 		table.getColumnModel().getColumn(2).setMaxWidth(180);
@@ -159,11 +166,11 @@ public class AssignSubjectPanel extends JPanel {
 		table.getColumnModel().getColumn(0).setCellRenderer(cellrenderer);
 		for(int i=0; i<table.getRowCount(); i++)
 		  {
-			  if(table.getModel().getValueAt(i,3).equals(new Integer(0)))
+			  if (Objects.equals(table.getModel().getValueAt(i, 3), 0))
 			  {
 				  table.getModel().setValueAt("Not Assigned",i, 3);
 
-				  
+
 			  }
 			 
 		  }

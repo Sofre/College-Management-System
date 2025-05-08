@@ -17,12 +17,6 @@ import collegeapplication.common.NotificationData;
 import collegeapplication.common.TimeUtil;
 import collegeapplication.subject.SubjectData;
 
-/*
- * Title : StudentData.java
- * Created by : Ajaysinh Rathod
- * Purpose : Handling all the data related to student
- * Mail : ajaysinhrathod1290@gmail.com
- */
 
 public class StudentData 
 {
@@ -216,7 +210,7 @@ public class StudentData
 		int result=0;
 		String query="update students set Courcecode=?,semoryear=?,rollnumber=?,optionalsubject=?,firstname=?,lastname=?,emailid=?,contactnumber=?,dateofbirth=?,gender=?,state=?,city=?,fathername=?,fatheroccupation=?,mothername=?,motheroccupation=?,profilepic=?,lastlogin=?,activestatus=?,userid=? where courcecode='"+sold.getCourceCode()+"' and semoryear="+sold.getSemorYear()+" and rollnumber="+sold.getRollNumber();
 	
-		//if cource or sem or rollnumber is changed 
+		//if course or sem or rollnumber is changed
 		if(!s.getCourceCode().equals(sold.getCourceCode()) || s.getSemorYear()!=sold.getSemorYear() || s.getRollNumber()!=sold.getRollNumber())
 		{
 			
@@ -235,7 +229,7 @@ public class StudentData
 				n.setUserProfile("Faculty");
 				new NotificationData().addNotification(n);
 			}
-			//deleting all the data of student from this cource
+			//deleting all the data of student from this course
 			this.deleteMarksData(sold);
 			this.deleteAttandanceData(sold);
 			this.deleteUsersHistory(sold);

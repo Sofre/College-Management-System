@@ -63,7 +63,7 @@ public class NotificationPanel extends JPanel {
 		headinglabel.setIcon(null);
 		headinglabel.setBounds(10, 0, 1096, 188);
 		add(headinglabel);
-		headinglabel.setBackground(new Color(32, 178, 170));
+		headinglabel.setBackground(new Color(1, 50, 90));
 		headinglabel.setHorizontalAlignment(SwingConstants.LEFT);
 		headinglabel.setForeground(Color.WHITE);
 		headinglabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
@@ -158,7 +158,7 @@ public class NotificationPanel extends JPanel {
 	{
 		JLabel label=new JLabel(message);
 		label.setBounds(10, row, this.getWidth()-20, 30);
-		label.setForeground(new Color(0,129,129));
+		label.setForeground(new Color(1, 50, 90));
 		label.setHorizontalAlignment(JLabel.LEFT);
 		label.setFont(new Font("Segoe UI",Font.PLAIN,20));
 		mainpanel.add(label);
@@ -181,7 +181,7 @@ public class NotificationPanel extends JPanel {
 		JLabel timelabel=new JLabel(n.getTime());
 		timelabel.setBounds(410,10,panel.getWidth()-440,30);
 		timelabel.setHorizontalAlignment(JLabel.RIGHT);
-		timelabel.setForeground(new Color(0,139,139));
+		timelabel.setForeground(new Color(1, 50, 90));
 		timelabel.setFont(new Font("Segoe UI",Font.PLAIN,15));
 		panel.add(timelabel);
 	

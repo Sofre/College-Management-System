@@ -17,16 +17,11 @@ import javax.swing.border.LineBorder;
 
 import collegeapplication.admin.AdminMain;
 import collegeapplication.common.ChangePasswordDialog;
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.CourceData;
 import collegeapplication.student.StudentMain;
 import collegeapplication.subject.AssignSubjectDialog;
 
-/*
- * Title : ViewFacultyPanel.java
- * Created by : Ajaysinh Rathod
- * Purpose : Displaying all the details of  faculty
- * Mail : ajaysinhrathod1290@gmail.com
- */
+
 
 @SuppressWarnings("serial")
 public class ViewFacultyPanel extends JPanel {
@@ -48,7 +43,7 @@ public class ViewFacultyPanel extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(32, 178, 170));
+		panel.setBackground(new Color(30, 183, 239));
 		panel.setBounds(10, 0, 1096, 188);
 		add(panel);
 		panel.setLayout(null);
@@ -63,7 +58,7 @@ public class ViewFacultyPanel extends JPanel {
 		editdetailsbutton = new JButton("Edit Details");
 		editdetailsbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
 		editdetailsbutton.setFocusable(false);
-		editdetailsbutton.setForeground(new Color(0, 139, 139));
+		editdetailsbutton.setForeground(new Color(1, 50, 90));
 		editdetailsbutton.setBackground(new Color(255, 255, 255));
 		editdetailsbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		editdetailsbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -80,7 +75,7 @@ public class ViewFacultyPanel extends JPanel {
 		backbutton.setForeground(Color.WHITE);
 		
 		backbutton.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		backbutton.setBackground(new Color(32, 178, 170));
+		backbutton.setBackground(new Color(1, 50, 90));
 		backbutton.setBounds(10, 141, 88, 36);
 		panel.add(backbutton);
 		
@@ -110,7 +105,7 @@ public class ViewFacultyPanel extends JPanel {
 		assignsubjectbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
 		assignsubjectbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		assignsubjectbutton.setFocusable(false);
-		assignsubjectbutton.setForeground(new Color(0, 139, 139));
+		assignsubjectbutton.setForeground(new Color(1, 50, 90));
 		assignsubjectbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		assignsubjectbutton.setBackground(Color.WHITE);
 		assignsubjectbutton.setBounds(743, 141, 153, 35);

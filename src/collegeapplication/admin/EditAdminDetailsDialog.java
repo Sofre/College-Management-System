@@ -89,7 +89,7 @@ public class EditAdminDetailsDialog extends JDialog implements ActionListener {
 		JLabel lblCreateAdminProfile = new JLabel("Edit Admin Profile ");
 		lblCreateAdminProfile.setOpaque(true);
 		lblCreateAdminProfile.setForeground(new Color(255, 255, 255));
-		lblCreateAdminProfile.setBackground(new Color(32, 178, 170));
+		lblCreateAdminProfile.setBackground(new Color(1, 50, 90));
 		lblCreateAdminProfile.setFont(new Font("Segoe UI", Font.BOLD, 25));
 		lblCreateAdminProfile.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCreateAdminProfile.setBounds(0, 0, 564, 58);
@@ -162,7 +162,7 @@ public class EditAdminDetailsDialog extends JDialog implements ActionListener {
 		showandhidebutton.setFocusable(false);
 		showandhidebutton.setFocusPainted(false);
 		showandhidebutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		showandhidebutton.setBackground(new Color(32, 178, 170));
+		showandhidebutton.setBackground(new Color(1, 50, 90));
 		showandhidebutton.setBounds(483, 328, 71, 38);
 		showandhidebutton.addActionListener(e -> {
 			if (showandhidebutton.getText().equals("show")) {
@@ -236,7 +236,7 @@ public class EditAdminDetailsDialog extends JDialog implements ActionListener {
 		createaccountbutton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		createaccountbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
 		createaccountbutton.setForeground(new Color(255, 255, 255));
-		createaccountbutton.setBackground(new Color(32, 178, 170));
+		createaccountbutton.setBackground(new Color(1, 50, 90));
 		createaccountbutton.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		createaccountbutton.setBounds(417, 600, 139, 37);
 		createaccountbutton.addActionListener(this);

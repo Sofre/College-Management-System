@@ -1,6 +1,6 @@
 package collegeapplication.subject;
 
-import collegeapplication.cource.Cource;
+import collegeapplication.course.Cource;
 
 public class Subject extends Cource
 {

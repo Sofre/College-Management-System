@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -30,8 +31,9 @@ import javax.swing.text.DefaultFormatter;
 
 import collegeapplication.admin.AdminMain;
 import collegeapplication.common.PhotoViewPanel;
+import collegeapplication.common.ResultSetToTableModel;
 import collegeapplication.faculty.FacultyMain;
-import net.proteanit.sql.DbUtils;
+
 
 /*
  * Title : StudentPanel.java
@@ -92,7 +94,7 @@ public class StudentPanel extends JPanel implements ActionListener
 		backbutton.setFocusable(false);
 		backbutton.setForeground(Color.WHITE);
 		backbutton.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		backbutton.setBackground(new Color(32, 178, 170));
+		backbutton.setBackground(new Color(232, 135, 10));
 		backbutton.setBounds(10, 141, 88, 36);
 		panel.add(backbutton);
 		
@@ -132,7 +134,7 @@ public class StudentPanel extends JPanel implements ActionListener
 		
 		table = new JTable();
 		table.setBorder(new LineBorder(Color.LIGHT_GRAY));
-		table.getTableHeader().setBackground(new Color(32,178,170));
+		table.getTableHeader().setBackground(new Color(1, 50, 90));
 		table.getTableHeader().setForeground(Color.white);
 		table.setSelectionBackground(new Color(240, 255, 255));
 		table.getTableHeader().setFont(new Font("Arial",Font.BOLD,20));
@@ -199,7 +201,7 @@ public class StudentPanel extends JPanel implements ActionListener
 		});
 		
 		panel = new JPanel();
-		panel.setBackground(new Color(32, 178, 170));
+		panel.setBackground(new Color(232, 135, 10));
 		panel.setBounds(10, 0, 1096, 183);
 		add(panel);
 		panel.setLayout(null);
@@ -208,7 +210,7 @@ public class StudentPanel extends JPanel implements ActionListener
 		studentslabel.setIcon(null);
 		studentslabel.setBounds(10, 65, 224, 44);
 		panel.add(studentslabel);
-		studentslabel.setBackground(new Color(32, 178, 170));
+		studentslabel.setBackground(new Color(232, 135, 10));
 		studentslabel.setHorizontalAlignment(SwingConstants.LEFT);
 		studentslabel.setForeground(Color.WHITE);
 		studentslabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
@@ -219,7 +221,7 @@ public class StudentPanel extends JPanel implements ActionListener
 		   viewstudentbutton.setBounds(769, 139, 153, 33);
 		   panel.add(viewstudentbutton);
 		   viewstudentbutton.setFocusable(false);
-		   viewstudentbutton.setForeground(new Color(0, 128, 128));
+		   viewstudentbutton.setForeground(new Color(1, 50, 90));
 		   viewstudentbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		   viewstudentbutton.setBackground(new Color(255, 255, 255));
 		   viewstudentbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
@@ -231,13 +233,13 @@ public class StudentPanel extends JPanel implements ActionListener
 		  panel.add(addstudentbutton);
 		  addstudentbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		  addstudentbutton.setFocusable(false);
-		  addstudentbutton.setForeground(new Color(0, 128, 128));
+		  addstudentbutton.setForeground(new Color(1, 50, 90));
 		  addstudentbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		  addstudentbutton.setBackground(new Color(255, 255, 255));
 		  
 		   viewbutton = new JButton("Photo View");
 		 viewbutton.addActionListener(this);
-		  viewbutton.setForeground(new Color(0, 128, 128));
+		  viewbutton.setForeground(new Color(1, 50, 90));
 		  viewbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		  viewbutton.setFocusable(false);
 		  viewbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -353,8 +355,12 @@ public class StudentPanel extends JPanel implements ActionListener
 		ResultSet rs=new StudentData().getStudentinfo(condition);
 		if(rs!=null)
 		{
-			table.setModel(DbUtils.resultSetToTableModel(rs));
-		}
+            try {
+                table.setModel(ResultSetToTableModel.buildTableModel(rs));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
 		table.getColumnModel().getColumn(0).setMaxWidth(150);
 		table.getColumnModel().getColumn(1).setMaxWidth(200);
 		table.getColumnModel().getColumn(2).setMaxWidth(300);

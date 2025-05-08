@@ -40,7 +40,7 @@ import collegeapplication.admin.AdminMain;
 import collegeapplication.common.Notification;
 import collegeapplication.common.NotificationData;
 import collegeapplication.common.TimeUtil;
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.CourceData;
 import collegeapplication.faculty.FacultyMain;
 import collegeapplication.subject.SubjectData;
 
@@ -118,7 +118,7 @@ public class MarkAttandancePanel extends JPanel implements ActionListener {
 		setLayout(null);
 		
 		headerlabel = new JLabel("  Mark Attandance ");
-		headerlabel.setBackground(new Color(32, 178, 170));
+		headerlabel.setBackground(new Color(1, 50, 90));
 		headerlabel.setHorizontalAlignment(SwingConstants.CENTER);
 		headerlabel.setForeground(new Color(255, 255, 255));
 		headerlabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
@@ -183,7 +183,7 @@ public class MarkAttandancePanel extends JPanel implements ActionListener {
 		table.setBorder(new LineBorder(Color.LIGHT_GRAY));
 		table.setForeground(new Color(0, 0, 0));
 		table.setRowHeight(40);
-		table.getTableHeader().setBackground(new Color(32,178,170));
+		table.getTableHeader().setBackground(new Color(1, 50, 90));
 		table.getTableHeader().setForeground(Color.white);
 		table.getTableHeader().setFont(new Font("Arial",Font.BOLD,20));
 		table.setFont(new Font("Segoe UI",Font.PLAIN,20));
@@ -199,7 +199,7 @@ public class MarkAttandancePanel extends JPanel implements ActionListener {
 			submitbutton.setForeground(Color.WHITE);
 			submitbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 			submitbutton.setFocusable(false);
-			submitbutton.setBackground(new Color(32, 178, 170));
+			submitbutton.setBackground(new Color(1, 50, 90));
 			submitbutton.setVisible(false);
 			submitbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			submitbutton.setBounds(924, 504, 149, 37);
@@ -245,7 +245,7 @@ public class MarkAttandancePanel extends JPanel implements ActionListener {
 		fetchstudentbutton = new JButton("Fetch Students");
 		fetchstudentbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
 		fetchstudentbutton.setFocusPainted(false);
-		fetchstudentbutton.setBackground(new Color(32, 178, 170));
+		fetchstudentbutton.setBackground(new Color(1, 50, 90));
 		fetchstudentbutton.setForeground(Color.WHITE);
 		fetchstudentbutton.setFocusable(true);
 		fetchstudentbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));

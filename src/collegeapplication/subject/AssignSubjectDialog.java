@@ -21,7 +21,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
 import collegeapplication.admin.AdminMain;
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.CourceData;
 import collegeapplication.faculty.Faculty;
 import collegeapplication.faculty.FacultyData;
 import collegeapplication.faculty.ViewFacultyPanel;

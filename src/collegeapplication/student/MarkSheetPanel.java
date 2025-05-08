@@ -28,15 +28,10 @@ import javax.swing.table.DefaultTableModel;
 
 import collegeapplication.admin.AdminMain;
 import collegeapplication.common.PrintMarksheetDialog;
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.CourceData;
 import collegeapplication.faculty.FacultyMain;
 
-/*
- * Title : MarkSheetPanel.java
- * Created by : Ajaysinh Rathod
- * Purpose : For displaying student marksheet
- * Mail : ajaysinhrathod1290@gmail.com
- */
+
 @SuppressWarnings("serial")
 public class MarkSheetPanel extends JPanel {
 
@@ -207,7 +202,7 @@ public class MarkSheetPanel extends JPanel {
 		
 		 headerpanel = new JPanel();
 		headerpanel.setLocation(10, 0);
-		headerpanel.setBackground(new Color(32, 178, 170));
+		headerpanel.setBackground(new Color(1, 50, 90));
 		headerpanel.setSize(1076, 100);
 		add(headerpanel);
 		headerpanel.setLayout(null);
@@ -228,7 +223,7 @@ public class MarkSheetPanel extends JPanel {
 		backbutton.setFocusable(false);
 		backbutton.setForeground(Color.WHITE);
 		backbutton.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		backbutton.setBackground(new Color(32, 178, 170));
+		backbutton.setBackground(new Color(1, 50, 90));
 		backbutton.setBounds(10, 47, 88, 36);
 		headerpanel.add(backbutton);
 		
@@ -238,7 +233,7 @@ public class MarkSheetPanel extends JPanel {
 		downloadbutton.setIcon(new ImageIcon(".\\assets\\downloadbutton.png"));
 		downloadbutton.setFocusable(false);
 		downloadbutton.setFont(new Font("Segoe UI", Font.BOLD, 17));
-		downloadbutton.setForeground(new Color(32, 178, 170));
+		downloadbutton.setForeground(new Color(1, 50, 90));
 		downloadbutton.setBackground(Color.WHITE);
 		downloadbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		downloadbutton.setBounds(891, 55, 164, 35);
@@ -353,7 +348,7 @@ public class MarkSheetPanel extends JPanel {
 		createtablemodel();
 		table.setBackground(Color.white);
 		table.setRowHeight(rowsize);
-		table.getTableHeader().setBackground(new Color(32, 178, 170));
+		table.getTableHeader().setBackground(new Color(1, 50, 90));
 		table.getTableHeader().setForeground(Color.white);
 		table.getTableHeader().setFont(new Font("Arial",Font.BOLD,20));
 		table.setFont(new Font("Segoe UI",Font.PLAIN,20));
@@ -402,7 +397,7 @@ public class MarkSheetPanel extends JPanel {
 		int maxtotalpracticalmarks=0;
 		for(int i=0; i<list.size(); i++)
 		{
-//			Object data[]= {list.get(i).sr_no,list.get(i).subjectname,list.get(i).maxtheorymarks,list.get(i).theorymarks,list.get(i).maxpracticalmarks,list.get(i).practicalmarks,list.get(i).theorymarks+list.get(i).practicalmarks};
+
 			maxtotaltheorymarks+=list.get(i).getMaxTheoryMarks();
 			totaltheorymarks+=list.get(i).getTheoryMarks();
 			maxtotalpracticalmarks+=list.get(i).getMaxPracticalMarks();

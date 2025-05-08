@@ -69,7 +69,7 @@ public class AdminProfilePanel extends JPanel {
 				ed.setVisible(true);
 			}
 		});
-		editlinksbutton.setForeground(new Color(0, 139, 139));
+		editlinksbutton.setForeground(new Color(1, 50, 90));
 		editlinksbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		editlinksbutton.setFocusPainted(false);
 		editlinksbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -84,7 +84,7 @@ public class AdminProfilePanel extends JPanel {
 		this.setSize(1116, 705);
 		setLayout(null);
 		panel = new JPanel();
-		panel.setBackground(new Color(32, 178, 170));
+		panel.setBackground(new Color(1, 50, 90));
 		panel.setBounds(10, 0, 1096, 183);
 		add(panel);
 		panel.setLayout(null);
@@ -92,7 +92,7 @@ public class AdminProfilePanel extends JPanel {
 		headinglabel.setIcon(null);
 		headinglabel.setBounds(10, 65, 272, 44);
 		panel.add(headinglabel);
-		headinglabel.setBackground(new Color(32, 178, 170));
+		headinglabel.setBackground(new Color(1, 50, 90));
 		headinglabel.setHorizontalAlignment(SwingConstants.LEFT);
 		headinglabel.setForeground(Color.WHITE);
 		headinglabel.setFont(new Font("Segoe UI", Font.BOLD, 30));

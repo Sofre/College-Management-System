@@ -34,8 +34,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.plaf.ColorUIResource;
 
 import collegeapplication.admin.AdminProfilePanel;
-import collegeapplication.chat.ChatData;
-import collegeapplication.chat.ChatMainPanel;
+
 import collegeapplication.common.DataBaseConnection;
 import collegeapplication.common.HomePanel;
 import collegeapplication.common.NotificationData;
@@ -48,12 +47,6 @@ import collegeapplication.login.LoginPageFrame;
 import collegeapplication.subject.AssignSubjectPanel;
 import collegeapplication.subject.SubjectPanel;
 
-/*
- * Title : StudentMain.java
- * Created by : Ajaysinh Rathod
- * Purpose : Student Main Frame
- * Mail : ajaysinhrathod1290@gmail.com
- */
 
 @SuppressWarnings("serial")
 public class StudentMain extends JFrame  implements ActionListener
@@ -93,7 +86,7 @@ public class StudentMain extends JFrame  implements ActionListener
 	public FacultyPanel facultypanel;
 	public AdminProfilePanel adminprofilepanel;
 	public SearchPanel searchpanel;
-	private ChatMainPanel chatmainpanel;
+
 	public NotificationPanel notificationpanel;
 	public int panely=0,panelx=250;
 	private JButton btn;
@@ -163,20 +156,11 @@ public class StudentMain extends JFrame  implements ActionListener
 						totalnewnotification.setText(notification>999?"999+":notification+"");
 						totalnewnotification.setIcon(new ImageIcon(messagecount.getScaledInstance(24+totalnewnotification.getText().length(), 24, Image.SCALE_SMOOTH)));
 						}
-						int chat=new ChatData().getUndreadMessageCountStudent(s);
-						if(chat>0)
-						{
-							totalnewchatmessage.setText(chat>999?"999+":chat+"");
-							totalnewchatmessage.setVisible(true);
-							totalnewchatmessage.setIcon(new ImageIcon(messagecount.getScaledInstance(26+totalnewchatmessage.getText().length(), 26, Image.SCALE_SMOOTH)));
-						}
-						else if(chat==0) 
-						{
-							totalnewchatmessage.setVisible(false);
-						}
+
+
 					}
 			}
-			
+
 		};
 		try
 		{
@@ -189,10 +173,10 @@ public class StudentMain extends JFrame  implements ActionListener
 		timer=new Timer(1000,setActive);
 		timer.start();
 		this.s=s;
-		Color bgColor =new Color(32,178,170);
+		Color bgColor =new Color(1, 50, 90);
 		Color frColor=Color.white;
 		UIManager.put("ComboBoxUI", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI");
-		
+
 	    UIManager.put("ComboBox.selectionBackground", new ColorUIResource(bgColor));
 	    UIManager.put("ComboBox.background", new ColorUIResource(Color.white));
 	    UIManager.put("ComboBox.foreground", new ColorUIResource(Color.DARK_GRAY));
@@ -208,7 +192,7 @@ public class StudentMain extends JFrame  implements ActionListener
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		this.setBounds(-2,0,1370,733);
 		createpanel();
 		JPanel sidebarpanel = new JPanel();
@@ -269,24 +253,8 @@ public class StudentMain extends JFrame  implements ActionListener
 		attandancereportbutton = createButton("Attandance Report");
 		sidebarpanel.add(attandancereportbutton);
 		
-		chatbutton = createButton("Chat");
-		chatbutton.setLayout(new BorderLayout());
-		sidebarpanel.add(chatbutton);
-		int chat=new ChatData().getUndreadMessageCountStudent(s);
-		totalnewchatmessage=new JLabel();
-		totalnewchatmessage.setSize(60,30);
-		totalnewchatmessage.setFont(new Font("Arial",Font.BOLD,12));
-		totalnewchatmessage.setForeground(Color.white);
-		totalnewchatmessage.setHorizontalTextPosition(JLabel.CENTER);
-		totalnewchatmessage.setVerticalTextPosition(JLabel.CENTER);
-		chatbutton.add(totalnewchatmessage,BorderLayout.LINE_END);
-		System.out.println(chat);
-		if(chat>0)
-		{
-			totalnewchatmessage.setText(chat>999?"999+":chat+"");
-			totalnewchatmessage.setVisible(true);
-			totalnewchatmessage.setIcon(new ImageIcon(messagecount.getScaledInstance(26+totalnewchatmessage.getText().length(), 26, Image.SCALE_SMOOTH)));
-		}
+
+
 		
 		searchbutton = createButton("Search");
 		sidebarpanel.add(searchbutton);
@@ -457,19 +425,7 @@ public class StudentMain extends JFrame  implements ActionListener
 		{
 			notificationpanel.setVisible(false);
 		}
-		else if(chatmainpanel!=null && chatmainpanel.isVisible())
-		{
-			try {
-				if(chatmainpanel.chatpanel.subchatpanel!=null&&chatmainpanel.chatpanel.subchatpanel.socket!=null&&!chatmainpanel.chatpanel.subchatpanel.socket.isClosed())
-				{
-					chatmainpanel.chatpanel.subchatpanel.socket.close();
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			chatmainpanel.setVisible(false);
-		}
+
 		
 	}
 	@Override
@@ -567,15 +523,7 @@ public class StudentMain extends JFrame  implements ActionListener
 				c.setBackground(Color.white);
 			}
 		}
-		else if(source==chatbutton)
-		{
-			activeButton(chatbutton);
-			chatmainpanel=new ChatMainPanel(this);
-			chatmainpanel.setLocation(this.panelx, this.panely);
-			chatmainpanel.setVisible(true);
-			contentPane.add(chatmainpanel);
-			
-		}
+
 		else if(source==searchbutton)
 		{
 			activeButton(searchbutton);

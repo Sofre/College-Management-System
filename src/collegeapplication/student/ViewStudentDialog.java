@@ -16,7 +16,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
 import collegeapplication.admin.AdminMain;
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.CourceData;
 
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -66,7 +66,7 @@ public class ViewStudentDialog extends JDialog implements ActionListener
 		headerlabel.setHorizontalAlignment(SwingConstants.CENTER);
 		headerlabel.setBounds(0, 0, 514, 53);
 		getContentPane().add(headerlabel);
-		headerlabel.setBackground(new Color(32, 178, 170));
+		headerlabel.setBackground(new Color(1, 50, 90));
 		headerlabel.setOpaque(true);
 		headerlabel.setForeground(new Color(255, 255, 255));
 		headerlabel.setFont(new Font("Arial", Font.BOLD, 23));
@@ -109,7 +109,7 @@ public class ViewStudentDialog extends JDialog implements ActionListener
 		viewdetails.setFocusable(false);
 		viewdetails.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		viewdetails.setForeground(new Color(255, 255, 255));
-		viewdetails.setBackground(new Color(32, 178, 170));
+		viewdetails.setBackground(new Color(1, 50, 90));
 		viewdetails.addActionListener(this);
 		viewdetails.setBounds(351, 11, 139, 33);
 		panel.add(viewdetails);

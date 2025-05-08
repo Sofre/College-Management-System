@@ -11,8 +11,8 @@ import java.util.Date;
 
 import javax.imageio.ImageIO;
 
-import collegeapplication.cource.Cource;
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.Cource;
+import collegeapplication.course.CourceData;
 
 public abstract class Person extends Cource{
 

@@ -2,19 +2,13 @@ package collegeapplication.common;
 
 import java.sql.*;
 
-/*
- * Title : DataBaseConnection.java
- * Created by : Ajaysinh Rathod
- * Purpose : For database connection
- * Mail : ajaysinhrathod1290@gmail.com
- */
 
 public class DataBaseConnection {
 	
 	static Connection con=null;
 	static final String url="jdbc:mysql://localhost:3306/collegedata";
 	static final String uname="root";
-	static final String password="";
+	static final String password="23052001";
 	
 	
 	public static Connection getConnection()
@@ -28,7 +22,7 @@ public class DataBaseConnection {
 			try
 			{
 				
-				Class.forName("com.mysql.jdbc.Driver");
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				con=DriverManager.getConnection(url,uname,password);
 				return con;
 			}
@@ -45,7 +39,7 @@ public class DataBaseConnection {
 		try
 		{
 			
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			con=DriverManager.getConnection(url,uname,password);
 			return true;
 		}

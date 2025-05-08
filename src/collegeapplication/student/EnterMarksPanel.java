@@ -32,7 +32,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.CourceData;
 import collegeapplication.faculty.FacultyMain;
 import collegeapplication.subject.SubjectData;
 
@@ -100,14 +100,14 @@ public class EnterMarksPanel extends JPanel implements ActionListener
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(10, 11, 1076, 117);
-		panel.setBackground(new Color(32, 178, 170));
+		panel.setBackground(new Color(232, 135, 10));
 		add(panel);
 		panel.setLayout(null);
 		
 		
 		 theorymarksbutton = new JButton("Theory Marks");
 		theorymarksbutton.setBorder(new LineBorder(new Color(255, 255, 255)));
-		theorymarksbutton.setForeground(new Color(0, 139, 139));
+		theorymarksbutton.setForeground(new Color(1, 50, 90));
 		theorymarksbutton.setBackground(new Color(255, 255, 255));
 		theorymarksbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		theorymarksbutton.setName("Active");
@@ -122,7 +122,7 @@ public class EnterMarksPanel extends JPanel implements ActionListener
 		practicalmarksbutton.setBorder(new LineBorder(new Color(255, 255, 255)));
 		practicalmarksbutton.setForeground(new Color(255, 255, 255));
 		practicalmarksbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		practicalmarksbutton.setBackground(new Color(32, 178, 170));
+		practicalmarksbutton.setBackground(new Color(1, 50, 90));
 		practicalmarksbutton.setBounds(893, 69, 148, 33);
 		practicalmarksbutton.setFocusable(false);
 		practicalmarksbutton.addActionListener(this);
@@ -209,7 +209,7 @@ public class EnterMarksPanel extends JPanel implements ActionListener
 			table.setBorder(new LineBorder(new Color(192, 192, 192), 2));
 			table.setBackground(Color.white);
 			table.setRowHeight(40);
-			table.getTableHeader().setBackground(new Color(32, 178, 170));
+			table.getTableHeader().setBackground(new Color(1, 50, 90));
 			table.getTableHeader().setForeground(Color.white);
 			table.getTableHeader().setFont(new Font("Arial",Font.BOLD,20));
 			table.setFont(new Font("Segoe UI",Font.PLAIN,20));
@@ -231,7 +231,7 @@ public class EnterMarksPanel extends JPanel implements ActionListener
 			submitbutton.setForeground(Color.WHITE);
 			submitbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 			submitbutton.setFocusable(false);
-			submitbutton.setBackground(new Color(32, 178, 170));
+			submitbutton.setBackground(new Color(1, 50, 90));
 			submitbutton.setBounds(923, 490, 149, 37);
 			submitbutton.setVisible(false);
 			submitbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -631,7 +631,7 @@ public class EnterMarksPanel extends JPanel implements ActionListener
 	public void ActiveButton(JButton button)
 	{
 		button.setBorder(new LineBorder(new Color(255, 255, 255)));
-		button.setForeground(new Color(0, 139, 139));
+		button.setForeground(new Color(1, 50, 90));
 		button.setBackground(new Color(255, 255, 255));
 		button.setName("Active");		
 	}
@@ -640,7 +640,7 @@ public class EnterMarksPanel extends JPanel implements ActionListener
 
 		button.setBorder(new LineBorder(new Color(255, 255, 255)));
 		button.setForeground(new Color(255, 255, 255));
-		button.setBackground(new Color(32, 178, 170));
+		button.setBackground(new Color(1, 50, 90));
 		button.setName("Deactive");
 	}
 	public void TableError(String error)

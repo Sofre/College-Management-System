@@ -32,12 +32,7 @@ import collegeapplication.student.Student;
 import collegeapplication.student.StudentMain;
 
 
-/*
- * Title : PrintPageDialog.java
- * Created by : Ajaysinh Rathod
- * Purpose : To download student marksheet in selected format 
- * Mail : ajaysinhrathod1290@gmail.com
- */
+
 
 @SuppressWarnings("serial")
 public class PrintMarksheetDialog extends JDialog {
@@ -330,14 +325,14 @@ public class PrintMarksheetDialog extends JDialog {
 		filedownloadedlabel = new JLabel();
 		filedownloadedlabel.setIcon(new ImageIcon(".\\assets\\downloadedbutton.png"));
 		filedownloadedlabel.setText("Png Flie Downloaded Succesfully");
-		filedownloadedlabel.setForeground(new Color(46, 139, 87));
+		filedownloadedlabel.setForeground(new Color(1, 50, 90));
 		filedownloadedlabel.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		filedownloadedlabel.setVisible(false);
 		filedownloadedlabel.setBounds(144, 111, 366, 33);
 		contentPanel.add(filedownloadedlabel);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(32, 178, 170));
+		panel.setBackground(new Color(1, 50, 90));
 		panel.setBounds(0, 2, 510, 47);
 		getContentPane().add(panel);
 		panel.setLayout(null);
@@ -346,7 +341,7 @@ public class PrintMarksheetDialog extends JDialog {
 		lblPrintMarksheet.setBounds(76, 11, 358, 25);
 		panel.add(lblPrintMarksheet);
 		lblPrintMarksheet.setForeground(new Color(255, 255, 255));
-		lblPrintMarksheet.setBackground(new Color(32, 178, 170));
+		lblPrintMarksheet.setBackground(new Color(1, 50, 90));
 		lblPrintMarksheet.setFont(new Font("Segoe UI", Font.BOLD, 22));
 		lblPrintMarksheet.setHorizontalAlignment(SwingConstants.CENTER);
 	}
@@ -360,7 +355,7 @@ public class PrintMarksheetDialog extends JDialog {
 		button.setFocusable(false);
 		button.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		button.setBorder(new EmptyBorder(0, 0, 0, 0));
-		button.setBackground(new Color(32,178,170));
+		button.setBackground(new Color(1, 50, 90));
 		button.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 	public void afterbutton(JButton button)

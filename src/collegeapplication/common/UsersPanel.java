@@ -27,12 +27,7 @@ import collegeapplication.student.StudentData;
 import collegeapplication.student.ViewStudentPanel;
 
 
-/*
- * Title : UserPanel.java
- * Created by : Ajaysinh Rathod
- * Purpose : To displaying users activity 
- * Mail : ajaysinhrathod1290@gmail.com
- */
+
 
 @SuppressWarnings("serial")
 public class UsersPanel extends JPanel {
@@ -97,7 +92,7 @@ public class UsersPanel extends JPanel {
 		setName("Users Panel");
 		
 		headerlabel = new JLabel("  Users");
-		headerlabel.setBackground(new Color(32, 178, 170));
+		headerlabel.setBackground(new Color(1, 50, 90));
 		headerlabel.setForeground(new Color(255, 255, 255));
 		headerlabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
 		headerlabel.setHorizontalAlignment(JLabel.LEFT);
@@ -116,7 +111,7 @@ public class UsersPanel extends JPanel {
 		
 		table = new JTable();
 		table.setBorder(new LineBorder(Color.LIGHT_GRAY));
-		table.getTableHeader().setBackground(new Color(32,178,170));
+		table.getTableHeader().setBackground(new Color(1, 50, 90));
 		table.getTableHeader().setForeground(Color.white);
 		table.setSelectionBackground(new Color(240, 255, 255));
 		table.getTableHeader().setFont(new Font("Arial",Font.BOLD,20));

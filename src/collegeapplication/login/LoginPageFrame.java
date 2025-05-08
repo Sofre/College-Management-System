@@ -1,12 +1,9 @@
 package collegeapplication.login;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -27,12 +24,7 @@ import collegeapplication.admin.Admin;
 import collegeapplication.admin.AdminData;
 import collegeapplication.common.DataBaseConnection;
 
-/*
- * Title : LoginPageFrame.java
- * Created by : Ajaysinh Rathod
- * Purpose : Main login frame
- * Mail : ajaysinhrathod1290@gmail.com
- */
+
 @SuppressWarnings("serial")
 public class LoginPageFrame extends JFrame implements ActionListener 
 {
@@ -53,6 +45,9 @@ public class LoginPageFrame extends JFrame implements ActionListener
 	private JLabel underlinelabel;
 	private JPanel loginbuttonpanel;
 	public Timer imagetimer;
+	private BufferedImage bufferedImage = null;
+
+
 	/**	
 	 * Launch the application.
 	 */
@@ -99,24 +94,38 @@ public class LoginPageFrame extends JFrame implements ActionListener
 		Admin ad=new AdminData().getAdminData();
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 139, 139,220));
+		panel.setBackground(new Color(35, 95, 175, 255));
 		panel.setBounds(0, 26, 1364, 159);
 		contentPane.add(panel);
 		panel.setLayout(null);
+
+
+
 		
-		JLabel lblSilverOakCollage = new JLabel(ad.getCollageName());
-		lblSilverOakCollage.setForeground(Color.WHITE);
-		lblSilverOakCollage.setFont(new Font("Segoe UI", Font.BOLD, 30));
-		lblSilverOakCollage.setHorizontalAlignment(SwingConstants.LEFT);
-		lblSilverOakCollage.setBounds(160, 43, 749, 57);
-		panel.add(lblSilverOakCollage);
+
+
+        try {
+           bufferedImage = ImageIO.read(new File("./assets/dev logo.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+		JLabel cmsPanel = new JLabel();
+		cmsPanel.setForeground(Color.WHITE);
+		cmsPanel.setText("Welcome to College Management System");
+		cmsPanel.setFont(new Font("FlowRiders UI",Font.BOLD,32));
+		cmsPanel.setHorizontalAlignment(SwingConstants.HORIZONTAL);
+		cmsPanel.setBounds(160,43,749,57);
+
+		JLabel cms_logo = new JLabel("logo");
+		cms_logo.setBounds(10,10,140,140);
+		cms_logo.setVisible(true);
+		Image scaled = bufferedImage.getScaledInstance(cms_logo.getWidth(), cms_logo.getHeight(), Image.SCALE_SMOOTH);
+		cms_logo.setIcon(new ImageIcon(scaled));
+
+
 		
-		JLabel lblLogo = new JLabel("logo");
-		lblLogo.setBounds(10, 10, 140, 140);
-		lblLogo.setIcon(new ImageIcon(ad.getRoundedProfilePic(lblLogo.getWidth(), lblLogo.getHeight(), lblLogo.getWidth())));
-		
-		
-		panel.add(lblLogo);
+		panel.add(cms_logo);
+		panel.add(cmsPanel);
 		
 		studentloginpanel=new LoginPanel("Student",new ImageIcon("./assets/studentlogin.png"),this);
 		studentloginpanel.setVisible(true);
@@ -156,7 +165,7 @@ public class LoginPageFrame extends JFrame implements ActionListener
 			adminbutton = new JButton("Admin");
 			adminbutton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					activeButton(adminbutton);
+					activeButton(adminbutton,"admin");
 					disableButton(facultybutton);
 					disableButton(studentbutton);
 					adminchanging=true;
@@ -173,7 +182,7 @@ public class LoginPageFrame extends JFrame implements ActionListener
 			facultybutton = new JButton("Faculty");
 			facultybutton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					activeButton(facultybutton);
+					activeButton(facultybutton,"faculty");
 					disableButton(studentbutton);
 					disableButton(adminbutton);
 					facultychanging=true;
@@ -189,25 +198,30 @@ public class LoginPageFrame extends JFrame implements ActionListener
 			studentbutton = new JButton("Student");
 			studentbutton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					activeButton(studentbutton);
+					activeButton(studentbutton,"student");
 					disableButton(facultybutton);
 					disableButton(adminbutton);
 					studentchanging=true;
 					adminchanging=false;
 					facultychanging=false;
 					timer.start();
+
 				}
 				
 			});
 			studentbutton.setBounds(280, 0, 140, 35);
 			this.buttonStyle(studentbutton);
 			loginbuttonpanel.add(studentbutton);
-			activeButton(studentbutton);
 
-			underlinelabel = new JLabel("");
-			underlinelabel.setBorder(new MatteBorder(3, 0, 0, 0, (Color)Color.CYAN));
+
+			underlinelabel = new JLabel("underline color ");
+			underlinelabel.setBorder(new MatteBorder(3, 0, 0, 0, (Color)Color.ORANGE));
 			underlinelabel.setBounds(underlinelabelx, 37, underlinelabelwidth, 4);
 			loginbuttonpanel.add(underlinelabel);
+
+
+
+
 
 		
 			
@@ -219,28 +233,38 @@ public class LoginPageFrame extends JFrame implements ActionListener
 		
 		
 	}
-//
-//	protected void disposethis() {
-//		// TODO Auto-generated method stub
-//		this.dispose();
-//	}
+
+	private void shiftPanels(int panelShift, int underlineShift) {
+		adminpanelx += panelShift;
+		studentpanelx += panelShift;
+		facultypanelx += panelShift;
+		underlinelabelx += underlineShift;
+	}
+
+	private void changeUnderlineColor(Color color) {
+		underlinelabel.setBorder(new MatteBorder(3, 0, 0, 0, color));
+	}
+
+
+
 
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
+
 		// TODO Auto-generated method stub
 			if(!adminchanging&&!studentchanging&&!facultychanging)
 			{
-				
+
 				imagenumber++;
 				if(imagenumber>5)
 				{
 					imagenumber=1;
-				
+
 				}
 				this.setBackgroundImage();
 			}
-			
+
 			if(adminchanging)
 			{
 				if(adminpanelx==500)
@@ -250,11 +274,15 @@ public class LoginPageFrame extends JFrame implements ActionListener
 				}
 				else
 				{
-					
+
 					adminpanelx+=50;
 					studentpanelx+=50;
 					facultypanelx+=50;
 					underlinelabelx-=5;
+					if (underlinelabelx < 275) {
+						changeUnderlineColor(Color.RED);
+						System.out.println(underlinelabelx);
+					}
 				}
 			}
 			else if(facultychanging)
@@ -270,8 +298,12 @@ public class LoginPageFrame extends JFrame implements ActionListener
 					{
 						adminpanelx-=50;
 						studentpanelx-=50;
-						facultypanelx-=50;	
+						facultypanelx-=50;
 						underlinelabelx+=5;
+						if (underlinelabelx > 5) {
+							changeUnderlineColor(Color.BLUE);
+							System.out.println(underlinelabelx);
+						}
 					}
 					else
 					{
@@ -279,6 +311,11 @@ public class LoginPageFrame extends JFrame implements ActionListener
 						studentpanelx+=50;
 						facultypanelx+=50;
 						underlinelabelx-=5;
+						if (underlinelabelx == 275) {
+							changeUnderlineColor(Color.BLUE);
+							System.out.println(underlinelabelx);
+						}
+
 					}
 				}
 			}
@@ -291,12 +328,17 @@ public class LoginPageFrame extends JFrame implements ActionListener
 				}
 				else
 				{
-					
+
 						adminpanelx-=50;
 						studentpanelx-=50;
 						facultypanelx-=50;
 						underlinelabelx+=5;
-					
+					if (underlinelabelx == 280) {
+						changeUnderlineColor(Color.ORANGE);
+						System.out.println(underlinelabelx);
+					}
+
+
 				}
 			}
 			
@@ -304,6 +346,7 @@ public class LoginPageFrame extends JFrame implements ActionListener
 			facultyloginpanel.setLocation(facultypanelx, facultypanely);
 			adminloginpanel.setLocation(adminpanelx, adminpanely);
 			underlinelabel.setLocation(underlinelabelx, underlinelabel.getY());
+
 			this.repaint();
 			
 		
@@ -320,11 +363,24 @@ public class LoginPageFrame extends JFrame implements ActionListener
 		button.setOpaque(false);
 	
 	}
-	public void activeButton(JButton button)
+	public void activeButton(JButton button,String option)
 	{
-		button.setForeground(Color.cyan);
+		switch (option){
+			case "student":
+				button.setForeground(Color.ORANGE);
+				break;
+			case "faculty": button.setForeground(Color.BLUE);
+				break;
+			case "admin":   button.setForeground(Color.RED);
+				break;
+		}
+
+
 		
 	}
+
+
+
 	public void disableButton(JButton button)
 	{
 		button.setForeground(Color.white);
@@ -338,7 +394,7 @@ public class LoginPageFrame extends JFrame implements ActionListener
 			
 		} catch (IOException e) {
 	
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}

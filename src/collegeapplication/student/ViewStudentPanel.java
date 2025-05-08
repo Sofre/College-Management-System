@@ -18,15 +18,10 @@ import javax.swing.border.LineBorder;
 
 import collegeapplication.admin.AdminMain;
 import collegeapplication.common.ChangePasswordDialog;
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.CourceData;
 import collegeapplication.faculty.FacultyMain;
 
-/*
- * Title : ViewStudentPanel.java
- * Created by : Ajaysinh Rathod
- * Purpose : Displaying all the details of student
- * Mail : ajaysinhrathod1290@gmail.com
- */
+
 
 @SuppressWarnings("serial")
 public class ViewStudentPanel extends JPanel {
@@ -52,7 +47,7 @@ public class ViewStudentPanel extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(32, 178, 170));
+		panel.setBackground(new Color(1, 50, 90));
 		panel.setBounds(10, 0, 1095, 188);
 		add(panel);
 		panel.setLayout(null);
@@ -68,7 +63,7 @@ public class ViewStudentPanel extends JPanel {
 		editdetailsbutton.setBorder(new EmptyBorder(0, 0, 0, 0));
 		editdetailsbutton.setFocusable(false);
 		editdetailsbutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		editdetailsbutton.setForeground(new Color(0, 139, 139));
+		editdetailsbutton.setForeground(new Color(1, 50, 90));
 		editdetailsbutton.setBackground(new Color(255, 255, 255));
 		editdetailsbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 
@@ -80,7 +75,7 @@ public class ViewStudentPanel extends JPanel {
 		marksheetbutton.setFocusable(false);
 
 		
-		marksheetbutton.setForeground(new Color(0, 139, 139));
+		marksheetbutton.setForeground(new Color(1, 50, 90));
 		marksheetbutton.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		marksheetbutton.setBackground(new Color(255, 255, 255));
 		marksheetbutton.setBounds(782, 141, 140, 35);
@@ -95,7 +90,7 @@ public class ViewStudentPanel extends JPanel {
 		backbutton.setFocusable(false);
 		backbutton.setForeground(Color.WHITE);
 		backbutton.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		backbutton.setBackground(new Color(32, 178, 170));
+		backbutton.setBackground(new Color(1, 50, 90));
 		backbutton.setBounds(10, 141, 88, 36);
 		panel.add(backbutton);
 		

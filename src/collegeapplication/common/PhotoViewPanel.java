@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import collegeapplication.cource.CourceData;
+import collegeapplication.course.CourceData;
 import collegeapplication.faculty.Faculty;
 import collegeapplication.faculty.FacultyData;
 import collegeapplication.faculty.FacultyPanel;
@@ -24,12 +24,7 @@ import collegeapplication.student.StudentPanel;
 import collegeapplication.student.ViewStudentPanel;
 
 
-/*
- * Title : PhotoViewPanel.java
- * Created by : Ajaysinh Rathod
- * Purpose : To displaying students and faculties image
- * Mail : ajaysinhrathod1290@gmail.com
- */
+
 @SuppressWarnings("serial")
 public class PhotoViewPanel extends JPanel {
 	int xpos[];
