@@ -58,8 +58,5 @@ javac LoginPageFrame.java
 - Contributions are welcome!
 
 
-###
-###
-###
-###
-## _Flow Riders™_
+---
+# _Flow Riders™_  
