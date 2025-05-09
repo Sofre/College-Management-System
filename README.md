@@ -24,18 +24,18 @@ The **College Management System** is a Java-based application designed to manage
 ```bash
 git clone https://github.com/YourUsername/College-Management-System.git
 ``````
----
+
 ### 2.  Open the project in VS Code or any Java supported IDE's  
 
----
+
 ### 3.  Configure the MySQL database:
 - Update database credentials in the configuration file 
----
+
 ### 4.  Build the project using Maven: 
 ```bash
 mvn clean install
 ``````
----
+
 ### 5.  Run the application : 
 ```bash
 javac LoginPageFrame.java
@@ -43,7 +43,7 @@ javac LoginPageFrame.java
 
 ---
 
-### 6.  Extra Information: 
+### Extra Information 
 - **Admin Information** : 
 - - Username: admin
 - - Password : admin
