@@ -20,12 +20,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-/*
- * Title : AdminProfilePanel.java
- * Created by : Ajaysinh Rathod
- * Purpose : All the data related to admin displaying using this panel
- * Mail : ajaysinhrathod1290@gmail.com
- */
 
 @SuppressWarnings("serial")
 public class AdminProfilePanel extends JPanel {
@@ -34,10 +28,7 @@ public class AdminProfilePanel extends JPanel {
 	private Admin a;
 	private JLabel headinglabel;
 
-	/**
-	 * Create the panel.
-	 */
-	
+
 	
 	public AdminProfilePanel(AdminMain am)
 	{

@@ -35,12 +35,6 @@ import collegeapplication.common.ResultSetToTableModel;
 import collegeapplication.faculty.FacultyMain;
 
 
-/*
- * Title : StudentPanel.java
- * Created by : Ajaysinh Rathod
- * Purpose : Displaying all student details in table/photo view
- * Mail : ajaysinhrathod1290@gmail.com
- */
 
 @SuppressWarnings("serial")
 public class StudentPanel extends JPanel implements ActionListener

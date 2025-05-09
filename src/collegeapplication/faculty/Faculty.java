@@ -4,12 +4,7 @@ import collegeapplication.common.Person;
 import collegeapplication.common.TimeUtil;
 import collegeapplication.course.CourceData;
 
-/*
- * Title : Faculty.java
- * Created by : Ajaysinh Rathod
- * Purpose : Binding all the of faculty
- * Mail : ajaysinhrathod1290@gmail.com
- */
+
 public class Faculty extends  Person
 {
 	

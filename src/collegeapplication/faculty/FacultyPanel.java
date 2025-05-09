@@ -35,12 +35,7 @@ import collegeapplication.common.ResultSetToTableModel;
 import collegeapplication.student.StudentMain;
 
 
-/*
- * Title : FacultyPanel.java
- * Created by : Ajaysinh Rathod
- * Purpose : To display all faculty in table or photoview
- * Mail : ajaysinhrathod1290@gmail.com
- */
+
 
 @SuppressWarnings("serial")
 public class FacultyPanel extends JPanel implements ActionListener {

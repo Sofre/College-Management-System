@@ -44,12 +44,7 @@ import collegeapplication.course.CourceData;
 import collegeapplication.faculty.FacultyMain;
 import collegeapplication.subject.SubjectData;
 
-/*
- * Title : MarkAttandancePanel.java
- * Created by : Ajaysinh Rathod
- * Purpose : For marking student attandance
- * Mail : ajaysinhrathod1290@gmail.com
- */
+
 @SuppressWarnings("serial")
 public class MarkAttandancePanel extends JPanel implements ActionListener {
 

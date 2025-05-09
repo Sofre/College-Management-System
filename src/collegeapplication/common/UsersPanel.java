@@ -36,9 +36,6 @@ public class UsersPanel extends JPanel {
 	private JTable table;
 	String condition="";
 
-	/**
-	 * Create the panel.
-	 */
 
 	public UsersPanel(AdminMain am)
 	{

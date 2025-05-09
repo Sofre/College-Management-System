@@ -5,7 +5,7 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.*;
 import java.awt.*;
 
-
+// Essential to know code is our build because other function APIs interfere with out goal of minimum dependency for a standalone
 public class ImageUtil {
 
     public static BufferedImage toBufferedImage(Image image)
