@@ -43,18 +43,18 @@ javac LoginPageFrame.java
 
 ---
 
-### Extra Information 
-- **Admin Information** : 
+## Extra Information 
+**Admin Information** : 
 - - Username: admin
 - - Password : admin
 - - -
 
-### Usage
+## Usage
 - Log in with admin credentials to access all features.
 - Add,update,or delete student and faculty data.
 - Track attendance and manage grades.
 ----
-### Contributing
+## Contributing
 - Contributions are welcome!
 
 
@@ -62,4 +62,4 @@ javac LoginPageFrame.java
 ###
 ###
 ###
-### _Flow Riders™_
+## _Flow Riders™_
