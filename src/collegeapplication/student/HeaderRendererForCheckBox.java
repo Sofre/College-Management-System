@@ -16,7 +16,7 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
-
+///  for duki fix render repaint !
 
 public class HeaderRendererForCheckBox implements TableCellRenderer 
 {
