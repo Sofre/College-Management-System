@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import collegeapplication.course.Cource;
-
+/// note notification scourge
 public class Notification extends Cource
 {
 	
